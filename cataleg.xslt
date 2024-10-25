@@ -13,7 +13,9 @@
            <th style="text-align:left">Punto</th>
     </tr>
    <xsl:for-each select="catalog/cd">
-    <xsl:if test="price &gt; 10">
+   <xsl:choose>
+  <xsl:when test="price &gt; 10">
+   <!--<xsl:if test="price &gt; 10"> -->
         <!--<xsl:sort select="price"/> -->
      <!-- <xsl:for-each select="catalog/cd[country='USA']"> --> 
     <tr>
@@ -23,9 +25,10 @@
         <td><xsl:value-of select="price"/></td>
           <td>&#128994;</td>
     </tr>
-
-        </xsl:if>
-         <xsl:if test="price &lt; 10">
+</xsl:when>
+ <xsl:otherwise>
+      <!--</xsl:if> --> 
+        <!--<xsl:if test="price &lt; 10"> --> 
         <!--<xsl:sort select="price"/> -->
      <!-- <xsl:for-each select="catalog/cd[country='USA']"> --> 
     <tr>
@@ -35,8 +38,9 @@
         <td><xsl:value-of select="price"/></td>
           <td>&#128308;</td>
     </tr>
-    
-        </xsl:if>
+      </xsl:otherwise>
+</xsl:choose>
+      <!--</xsl:if> -->  
     </xsl:for-each>
   </table>
 </body>
