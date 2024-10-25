@@ -12,7 +12,12 @@
          <th style="text-align:left">Price</th>
            <th style="text-align:left">Punto</th>
     </tr>
-   <xsl:for-each select="catalog/cd">
+    <xsl:apply-templates/>
+  </table>
+</body>
+</html>
+</xsl:template>
+  <xsl:template match="catalog/cd">
    <xsl:choose>
   <xsl:when test="price &gt; 10">
    <!--<xsl:if test="price &gt; 10"> -->
@@ -41,10 +46,6 @@
       </xsl:otherwise>
 </xsl:choose>
       <!--</xsl:if> -->  
-    </xsl:for-each>
-  </table>
-</body>
-</html>
-</xsl:template>
+      </xsl:template>
 </xsl:stylesheet>
 
